@@ -1,0 +1,35 @@
+//importar variaveis
+@import 'variaveis';
+
+//navbar
+.navbar {
+
+    padding: $padding;
+
+    h4 {
+        color: $branco;
+        text-transform: $uppercase;
+        text-shadow: $text-shadow-navbar;
+        font-weight: $negrito;
+        font-size: $font-size;
+    }
+
+    .nav-link {
+        color: $branco;
+        text-shadow: $text-shadow-navbar;
+    }
+}
+
+//jumbotron
+.jumbotron {
+    padding: 4rem 1rem;
+    margin-bottom: $margin;
+    background-color: #e9ecef;
+    border-radius: .3rem;
+
+    h1 {
+        font-weight: 500;
+        color: $preto;
+        text-shadow: $text-shadow-jumbotron;
+    }
+  }
