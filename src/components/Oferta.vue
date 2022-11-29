@@ -62,8 +62,8 @@ export default {
     computed: {
         getTipo() {
             switch(this.tipo) {
-                case '1': return 'Celular'
-                case '2': return 'Computador'
+                case '1': return 'Computador'
+                case '2': return 'Celular'
             }
             return ''
         },
