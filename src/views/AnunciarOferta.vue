@@ -59,7 +59,6 @@
       </div>
 
       <div class="row mt-3">
-        {{titulo}} | {{descricao}} | {{preco}} |{{tipo}} 
         <div class="col">
           <button type="submit" class="btn btn-dark" @click="anunciarOferta()">Anunciar</button>
         </div>
@@ -87,8 +86,10 @@
 
       anunciarOferta() {
 
+        let tempoDecorrido = Date.now()
+        let dataAtual = new Date(tempoDecorrido)
+
         let ofertas = JSON.parse(localStorage.getItem('ofertas'))
-        console.log(ofertas)
 
         if(!ofertas) ofertas = []
         
@@ -96,12 +97,21 @@
           titulo: this.titulo,
           descricao: this.descricao,
           preco: this.preco,
-          tipo: this.tipo
+          tipo: this.tipo,
+          publicacao: dataAtual.toISOString()
         })
         
         localStorage.setItem('ofertas', JSON.stringify(ofertas))
         
+        this.resetaFormulario()
        
+      },
+
+      resetaFormulario() {
+        this.titulo = '',
+        this.descricao = '',
+        this.preco = '',
+        this.tipo = ''
       }
 
     }

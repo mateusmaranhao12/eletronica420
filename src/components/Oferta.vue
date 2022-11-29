@@ -19,7 +19,7 @@
             <p>{{descricao}}</p>
         </div>
         <div class="card-footer">
-            <small class="text-muted">Preço: R${{preco}}  | Tipo: {{tipo}} | Publicação: </small>
+            <small class="text-muted">Preço: R${{preco}}  | Tipo: {{getTipo}} | Publicação: {{getPublicacao}} </small>
         </div>
     </div>
 </template>
@@ -41,7 +41,7 @@ export default {
             type: String,
             //default: 'O remetente não adicinou uma descrição para essa oferta'
             default() {
-                return '*'.repeat(20)
+                return 'O usuário não adicionou descrição'
             }
         },
         preco: {
@@ -52,10 +52,28 @@ export default {
             type: String,
             required: true
         },
+
         publicacao: {
             type: String,
             required: true
         }
+    },
+
+    computed: {
+        getTipo() {
+            switch(this.tipo) {
+                case '1': return 'Celular'
+                case '2': return 'Computador'
+            }
+            return ''
+        },
+
+        getPublicacao() {
+            let dataPublicacao = new Date(this.publicacao)
+            //return dataPublicacao.toLocaleString('pt-BR')
+            return dataPublicacao.toLocaleDateString('pt-BR')
+        }
     }
+    
 }
 </script>

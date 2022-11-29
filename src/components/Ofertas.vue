@@ -5,8 +5,6 @@
     <div class="col-md-3">
         <select class="form-select">
             <option value="">Filtrar ofertas</option>
-            <option>Id crescente</option>
-            <option>Id decrescente</option>
             <option>A - Z</option>
             <option>Z - A</option>
         </select>
@@ -21,8 +19,10 @@
     <div class="col-md-3">
         <minha-lista />
     </div>
-    <div class="ofertas">
-        <oferta />
+    <div class="ofertas" v-for="(oferta, index) in ofertas" :key="index">
+        <oferta
+            v-bind="oferta"
+        />
     </div>
 </template>
 
@@ -33,9 +33,22 @@
 
     export default {
         name: 'Ofertas',
+        
         components: {
             MinhaLista,
             Oferta
+        },
+
+        data () {
+        return {
+            ofertas: []
         }
+        },
+
+        mounted() { //
+            this.ofertas = JSON.parse(localStorage.getItem('ofertas'))
+        }
+
+        
     }
 </script>

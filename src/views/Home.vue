@@ -12,8 +12,8 @@
   </div>
 
   <div class="container">
-    <div class="row">
-        <ofertas />
+    <div class="row" >
+        <ofertas /> 
       </div>
   </div>
 
@@ -28,14 +28,6 @@
 
     components: {
       Ofertas
-    },
-
-    data: () => ({
-      ofertas: []
-    }),
-
-    mounted() { //
-      this.ofertas = JSON.parse(localStorage.getItem('ofertas'))
     }
 
   }
