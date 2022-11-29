@@ -23,11 +23,21 @@
 
   import Ofertas from '@/components/Ofertas.vue';
   export default {
+
     name: 'Home',
 
     components: {
       Ofertas
+    },
+
+    data: () => ({
+      ofertas: []
+    }),
+
+    mounted() { //
+      this.ofertas = JSON.parse(localStorage.getItem('ofertas'))
     }
+
   }
 
 </script>

@@ -12,7 +12,7 @@
           <label class="form-label">
             Título do item
           </label>
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" v-model="titulo">
           <div class="form-text">
             Exemplo: Xiaomi Mi 11 Lite, IPhone 13)
           </div>
@@ -24,7 +24,7 @@
           <label class="form-label">
             Descrição
           </label>
-          <textarea type="text" class="form-control"></textarea>
+          <textarea type="text" class="form-control" v-model="descricao"></textarea>
           <div class="form-text">
             Informe os detalhes da sua oferta
           </div>
@@ -36,7 +36,7 @@
           <label class="form-label">
             Preço
           </label>
-          <input type="number" class="form-control">
+          <input type="number" class="form-control" v-model="preco">
           <div class="form-text">
             Informe o preço
           </div>
@@ -46,8 +46,8 @@
           <label class="form-label">
             Tipo
           </label>
-          <select class="form-select">
-            <option value="" disabled>--Selecione--</option>
+          <select class="form-select" v-model="tipo">
+            <option value="">--Selecione--</option>
             <option value="1">Computador</option>
             <option value="2">Celular</option>
           </select>
@@ -59,11 +59,52 @@
       </div>
 
       <div class="row mt-3">
+        {{titulo}} | {{descricao}} | {{preco}} |{{tipo}} 
         <div class="col">
-          <button type="submit" class="btn btn-dark">Anunciar</button>
+          <button type="submit" class="btn btn-dark" @click="anunciarOferta()">Anunciar</button>
         </div>
       </div>
 
     </div>
 
 </template>
+
+<script>
+
+  export default {
+    name: 'AnunciarOferta',
+
+    data: () => ({
+
+      titulo: '',
+      descricao: '',
+      preco: '',
+      tipo: ''
+
+    }),
+
+    methods: {
+
+      anunciarOferta() {
+
+        let ofertas = JSON.parse(localStorage.getItem('ofertas'))
+        console.log(ofertas)
+
+        if(!ofertas) ofertas = []
+        
+        ofertas.push({
+          titulo: this.titulo,
+          descricao: this.descricao,
+          preco: this.preco,
+          tipo: this.tipo
+        })
+        
+        localStorage.setItem('ofertas', JSON.stringify(ofertas))
+        
+       
+      }
+
+    }
+  }
+
+</script>
