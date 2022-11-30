@@ -8,8 +8,8 @@
                     </div>
                     <div>
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox">
-                            <label class="form-check-label">Adicionar a minha lista</label>
+                            <input class="form-check-input" type="checkbox" v-model="minha_lista">
+                            <label class="form-check-label">Minha lista</label>
                         </div>
                     </div>
                 </div>
@@ -27,6 +27,21 @@
 <script>
 export default {
     name: 'Oferta',
+
+    data: () => ({
+        minha_lista: false
+    }),
+
+    watch: {
+        minha_lista(valorNovo) {
+            if(valorNovo) {
+                this.emitter.emit('adicionarAMinhaLista', this.titulo)
+            } else {
+                this.emitter.emit('removerDaMinhaLista', this.titulo)
+            }
+        }
+    },
+
     props: {
         titulo: {
             type: String,
