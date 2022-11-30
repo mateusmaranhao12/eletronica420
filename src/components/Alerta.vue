@@ -21,7 +21,7 @@ export default {
             switch(this.tipo) {
                 case 'erro': return 'alert alert-danger'
                 case 'sucesso': return 'alert alert-success'
-                default: return 'alert alert-success'
+                default: return ''
             }
         }
     }
