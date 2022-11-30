@@ -1,10 +1,10 @@
 <template>
-    <div class="card mt-5 mb-2">
+    <div class="card mb-5">
         <div class="card-header bg-dark text-white">
             <div class="row">
                 <div class="col d-flex justify-content-between">
                     <div>
-                       {{titulo}}
+                        <i :class="iconeOferta"></i> {{titulo}}
                     </div>
                     <div>
                         <div class="form-check form-switch">
@@ -39,10 +39,7 @@ export default {
         },
         descricao: {
             type: String,
-            //default: 'O remetente não adicinou uma descrição para essa oferta'
-            default() {
-                return 'O usuário não adicionou descrição'
-            }
+            required: true
         },
         preco: {
             type: [ Number, String ],
@@ -72,6 +69,14 @@ export default {
             let dataPublicacao = new Date(this.publicacao)
             //return dataPublicacao.toLocaleString('pt-BR')
             return dataPublicacao.toLocaleDateString('pt-BR')
+        },
+
+        iconeOferta() {
+            switch(this.tipo) {
+                case '1': return 'fa-solid fa-computer'
+                case '2': return 'fa-solid fa-mobile-screen-button'
+            }
+            return ''
         }
     }
     

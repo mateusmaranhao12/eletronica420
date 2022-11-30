@@ -33,3 +33,20 @@
         text-shadow: $text-shadow-jumbotron;
     }
   }
+
+  //alerta
+
+  .alert-danger {
+    margin-top: 5px;
+    background: rgb(222,222,222);
+    background: linear-gradient(177deg, rgba(222,222,222,1) 0%, rgb(250, 74, 74) 0%, rgb(197, 45, 45) 49%, rgb(119, 19, 19) 100%);
+    color: $branco;
+    border: none;
+  }
+
+  .alert-success {
+    margin-top: 5px;
+    background: rgb(222,222,222);
+    background: linear-gradient(177deg, rgba(222,222,222,1) 0%, rgb(10, 194, 0) 0%, rgb(17, 146, 0) 49%, rgb(0, 117, 16) 100%);
+    color: $branco;
+  }
