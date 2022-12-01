@@ -24,6 +24,10 @@
     components: {
       PesquisarOferta,
       Ofertas
+    },
+
+    activated() {
+      this.ofertas = JSON.parse(localStorage.getItem('ofertas'))
     }
 
   }
