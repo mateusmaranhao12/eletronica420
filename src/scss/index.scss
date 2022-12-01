@@ -37,17 +37,15 @@
   //alerta
 
   .alert-danger {
-    background: rgb(222,222,222);
-    background: linear-gradient(177deg, rgba(222,222,222,1) 0%, rgb(250, 74, 74) 0%, rgb(197, 45, 45) 49%, rgb(119, 19, 19) 100%);
-    color: $branco;
-    border: none;
+    background-color: #ffd3d3;
+    color: $vermelho_escuro;
+    border: 1px solid $vermelho_escuro;
     border-radius: 0 0 10px 10px;
   }
 
   .alert-success {
-    background: rgb(222,222,222);
-    background: linear-gradient(177deg, rgba(222,222,222,1) 0%, rgb(10, 194, 0) 0%, rgb(17, 146, 0) 49%, rgb(0, 117, 16) 100%);
-    color: $branco;
-    border: none;
+    background-color: rgb(194, 255, 194);
+    color: $verde_escuro;
+    border: 1px solid $verde_escuro;
     border-radius: 0 0 10px 10px;
   }

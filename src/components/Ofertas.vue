@@ -81,7 +81,7 @@
                     })
                 }
 
-                if(valorNovo == 3) {
+                if(valorNovo == 3) { //mais recentes primeiro
                     this.ofertas.sort((proximo, atual) => {
 
                         if(atual.publicacao > proximo.publicacao) {
@@ -95,7 +95,7 @@
                     })
                 }
 
-                if(valorNovo == 4) {
+                if(valorNovo == 4) { //mais antigos primeiro
                     this.ofertas.sort((proximo, atual) => {
 
                         if(atual.publicacao < proximo.publicacao) {
@@ -109,7 +109,7 @@
                     })
                 }
 
-                if(valorNovo == 5) {
+                if(valorNovo == 5) { //mais baratos primeiro
                     this.ofertas.sort((proximo, atual) => {
 
                         if(atual.preco < proximo.preco) {
@@ -123,7 +123,7 @@
                     })
                 }
 
-                if(valorNovo == 6) {
+                if(valorNovo == 6) { //mais caros primeiro
                     this.ofertas.sort((proximo, atual) => {
 
                         if(atual.preco > proximo.preco) {
