@@ -1,11 +1,17 @@
 <template>
-
-    <alerta v-if="exibirAlerta" :tipo="alerta.tipo">
-      <template v-slot:titulo>
-          <h5><i :class="iconeAlerta"></i> {{alerta.titulo}}</h5>
-      </template>
-        <p>{{alerta.descricao}}</p>
-    </alerta>
+    <transition 
+      appear
+      enter-active-class="animate__animated animate__flipInX"
+      leave-active-class="animate__animated animate__flipOutX"
+    >
+      <alerta v-if="exibirAlerta" :tipo="alerta.tipo">
+        <template v-slot:titulo>
+            <h5><i :class="iconeAlerta"></i> {{alerta.titulo}}</h5>
+        </template>
+          <p>{{alerta.descricao}}</p>
+      </alerta>
+    </transition>
+    
 
     <div class="container py-4">
       <div class="row">

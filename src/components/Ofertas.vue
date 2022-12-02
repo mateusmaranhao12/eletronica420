@@ -1,5 +1,5 @@
 <template>
-    <div class="col-md-3 mb-5">
+    <div class="col-md-6 mb-5">
         <h4><i class="fa-sharp fa-solid fa-cart-shopping"></i> Ofertas anunciadas</h4>
     </div>
     <div class="col-md-3 mb-5">
@@ -8,23 +8,21 @@
             <option value="1">A - Z</option>
             <option value="2">Z - A</option>
             <option value="3">Mais recentes</option>
-            <option value="4">Mais antigos</option>
+            <option value="4">Mais antigos (Padrão)</option>
             <option value="5">Mais baratos</option>
             <option value="6">Mais caros</option>
-        </select>
-    </div>
-    <div class="col-md-3 mb-5">
-        <select class="form-select">
-            <option value="">Filtrar tipo</option>
-            <option>Celular</option>
-            <option>Computador</option>
         </select>
     </div>
     <div class="col-md-3 mb-5">
         <minha-lista />
     </div>
     <div class="ofertas" v-for="(oferta, index) in ofertas" :key="index">
-        <oferta v-bind="oferta" />
+        <transition 
+            appear
+            enter-active-class="animate__animated animate__lightSpeedInLeft"
+        >
+            <oferta v-bind="oferta" />
+        </transition>
     </div>
 </template>
 
@@ -57,6 +55,7 @@
         },
 
         watch: {
+
             ordenacao(valorNovo) {
                 
                 if(valorNovo == 1) { //ordenação A - Z
