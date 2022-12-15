@@ -5,13 +5,13 @@ import Home from '@/views/Home.vue'
 
 const routes = [
   {
-    path: '/',
+    path: '/', //rota raíz da aplicação
     component: Home,
     props: true
   },
 
   {
-    path: '/anunciar-oferta',
+    path: '/anunciar-oferta', //rota anunciar oferta
     component: AnunciarOferta,
     props: true
   }

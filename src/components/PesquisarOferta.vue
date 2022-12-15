@@ -17,7 +17,7 @@
             titulo: ''
         }),
         methods: {
-            pesquisarOferta() {
+            pesquisarOferta() { //pesquisar oferta
                 this.emitter.emit('filtrarOfertas', {titulo: this.titulo})
             }
         }

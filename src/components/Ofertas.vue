@@ -48,7 +48,7 @@
 
             this.ofertas = JSON.parse(localStorage.getItem('ofertas'))
 
-            this.emitter.on('filtrarOfertas', oferta => {
+            this.emitter.on('filtrarOfertas', oferta => { //filtrar oferetas
                 const ofertas = JSON.parse(localStorage.getItem('ofertas'))
                 this.ofertas = ofertas.filter(reg => reg.titulo.toLowerCase().includes(oferta.titulo.toLowerCase())) //true ou false: O método filter cria um novo array com todos os elementos que passaram no teste implementado na função
             })

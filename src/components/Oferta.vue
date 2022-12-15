@@ -1,6 +1,6 @@
 <template>
     <div class="card mb-5">
-        <div class="card-header bg-dark text-white">
+        <div :class="bgOferta">
             <div class="row">
                 <div class="col d-flex justify-content-between">
                     <div>
@@ -33,7 +33,7 @@ export default {
     }),
 
     watch: {
-        minha_lista(valorNovo) {
+        minha_lista(valorNovo) { //adicionar e remover da Minha Lista
             if(valorNovo) {
                 this.emitter.emit('adicionarAMinhaLista', this.titulo)
             } else {
@@ -42,7 +42,7 @@ export default {
         }
     },
 
-    props: {
+    props: { //props
         titulo: {
             type: String,
             required: true,
@@ -72,7 +72,7 @@ export default {
     },
 
     computed: {
-        getTipo() {
+        getTipo() { //se é computador ou celular
             switch(this.tipo) {
                 case '1': return 'Computador'
                 case '2': return 'Celular'
@@ -80,19 +80,27 @@ export default {
             return ''
         },
 
-        getPublicacao() {
+        getPublicacao() { //data de publicação da oferta
             let dataPublicacao = new Date(this.publicacao)
             //return dataPublicacao.toLocaleString('pt-BR')
             return dataPublicacao.toLocaleDateString('pt-BR')
         },
 
-        iconeOferta() {
+        iconeOferta() { //icone da oferta
             switch(this.tipo) {
                 case '1': return 'fa-solid fa-computer'
                 case '2': return 'fa-solid fa-mobile-screen-button'
             }
             return ''
-        }
+        },
+
+        bgOferta() { //icone da oferta
+            switch(this.tipo) {
+                case '1': return 'card-header bg-dark text-white'
+                case '2': return 'card-header bg-secondary text-white'
+            }
+            return ''
+        },
     }
     
 }

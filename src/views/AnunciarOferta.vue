@@ -103,7 +103,7 @@
 
     }),
 
-    mounted() {
+    mounted() { //exibir alerta
       this.emitter.on('alerta', (a) => {
 
         this.alerta = a
@@ -113,7 +113,7 @@
     },
 
     computed: {
-      iconeAlerta() {
+      iconeAlerta() { //icone do alerta de feed de sucesso e de erro
         switch(this.alerta.tipo) {
             case 'erro': return 'fa-solid fa-triangle-exclamation'
             case 'sucesso': return 'fa-solid fa-square-check'
@@ -141,7 +141,7 @@
           publicacao: dataAtual.toISOString()
         })
         
-        if(this.validarFormulario()) {
+        if(this.validarFormulario()) { //feed de sucesso
 
           localStorage.setItem('ofertas', JSON.stringify(ofertas))
 
@@ -155,7 +155,7 @@
 
         } else {
 
-          this.emitter.emit('alerta', {
+          this.emitter.emit('alerta', { //feed de erro
             tipo: 'erro',
             titulo: `Erro! Não foi possível realizar a oferta :(`,
             descricao: 'Verifique se você preencheu todos os campos!'
@@ -165,14 +165,14 @@
        
       },
 
-      resetaFormulario() {
+      resetaFormulario() { //resetar formulário após envio
         this.titulo = '',
         this.descricao = '',
         this.preco = '',
         this.tipo = ''
       },
 
-      validarFormulario() {
+      validarFormulario() { //verificar se todos os campos foram preenchidos
         let valido = true
 
         if(this.titulo === '') valido = false

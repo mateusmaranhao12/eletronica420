@@ -17,7 +17,7 @@ export default {
     props: { tipo: String },
 
     computed: {
-        estiloAlerta() {
+        estiloAlerta() { //estilo visual do alerta, feed de erro ou de sucesso
             switch(this.tipo) {
                 case 'erro': return 'alert alert-danger'
                 case 'sucesso': return 'alert alert-success'
